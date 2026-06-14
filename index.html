@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joshua Bostic — Character Artist | 3D Generalist</title>
+  <meta name="description" content="Joshua Bostic — Character Artist and 3D Generalist based in Brooklyn, NY. Specializing in character sculpting, creature design, and full pipeline delivery." />
+  <meta property="og:title" content="Joshua Bostic — Character Artist | 3D Generalist" />
+  <meta property="og:description" content="Character Artist and 3D Generalist based in Brooklyn, NY. Stylized &amp; Realistic. ZBrush · Substance Painter · Maya · UE5." />
+  <meta property="og:image" content="Renders/Gachiakuta_TA.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bostic3d.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="Renders/Gachiakuta_TA.jpg" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230a0a0a'/><text x='3' y='24' font-family='sans-serif' font-size='17' font-weight='bold' fill='%23B80F0A'>B3</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500&family=Bangers&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="#hero" class="nav-logo">BOSTIC<span>3D</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="hero">
+    <span class="graffiti-bg graffiti-hero-1" aria-hidden="true">CHARACTER</span>
+    <span class="graffiti-bg graffiti-hero-2" aria-hidden="true">ARTIST</span>
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="hero-label">Brooklyn, NY &nbsp;·&nbsp; Available for hire</p>
+        <h1 class="hero-heading">
+          <span class="hero-line">Character</span>
+          <span class="hero-line">Artist</span>
+        </h1>
+        <p class="hero-tagline">Stylized &amp; Realistic</p>
+        <p class="hero-sub">ZBrush &nbsp;·&nbsp; Substance Painter &nbsp;·&nbsp; Maya &nbsp;·&nbsp; UE5 &nbsp;·&nbsp; Marmoset</p>
+        <div class="hero-cta">
+          <a href="#work" class="btn btn-primary">View Work</a>
+          <a href="#contact" class="btn btn-ghost">Hire Me</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="Renders/Gachiakuta_TA.jpg" alt="Gachiakuta — 3D Character by Joshua Bostic" />
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="section-header">
+      <h2 class="section-title">Work</h2>
+      <div class="work-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="character">Characters</button>
+        <button class="filter-btn" data-filter="stylized">Stylized</button>
+        <button class="filter-btn" data-filter="study">Studies</button>
+        <button class="filter-btn" data-filter="motion">Motion</button>
+      </div>
+    </div>
+    <div class="work-grid" id="workGrid">
+
+      <div class="work-card work-card--wide" data-category="motion" data-project="fallingthings">
+        <video autoplay muted loop playsinline>
+          <source src="Renders/Fallingthings.mp4" type="video/mp4" />
+        </video>
+        <div class="work-card-overlay">
+          <span class="card-category">Motion</span>
+          <h3 class="card-title">Falling Things</h3>
+          <p class="card-desc">3D Animation · Motion</p>
+        </div>
+      </div>
+
+      <div class="work-card" data-category="character" data-project="thunder">
+        <img src="Renders/Thunder_TA.jpg" alt="Thunder — Full Body Character Sculpt" loading="lazy" />
+        <div class="work-card-overlay">
+          <span class="card-category">Character</span>
+          <h3 class="card-title">Thunder</h3>
+          <p class="card-desc">Full body sculpt · ZBrush</p>
+        </div>
+      </div>
+
+      <div class="work-card" data-category="character" data-project="pug">
+        <img src="Renders/Pug_TA.jpg" alt="Pug — Stylized Female Character" loading="lazy" />
+        <div class="work-card-overlay">
+          <span class="card-category">Character</span>
+          <h3 class="card-title">Pug</h3>
+          <p class="card-desc">Full body sculpt · ZBrush</p>
+        </div>
+      </div>
+
+      <div class="work-card" data-category="stylized" data-project="gachiakuta">
+        <img src="Renders/Gachiakuta_TA.jpg" alt="Gachiakuta — Stylized Fan Art Character" loading="lazy" />
+        <div class="work-card-overlay">
+          <span class="card-category">Stylized</span>
+          <h3 class="card-title">Gachiakuta</h3>
+          <p class="card-desc">Fan art · ZBrush · Polypaint</p>
+        </div>
+      </div>
+
+      <div class="work-card" data-category="stylized" data-project="huey">
+        <img src="Renders/Huey_TA.jpg" alt="Huey — Toon Stylized Character" loading="lazy" />
+        <div class="work-card-overlay">
+          <span class="card-category">Stylized</span>
+          <h3 class="card-title">Huey</h3>
+          <p class="card-desc">Cartoon-to-3D · ZBrush</p>
+        </div>
+      </div>
+
+      <div class="work-card" data-category="character" data-project="jester">
+        <img src="Renders/Jester_TA.jpg" alt="Jester — Grotesque Head Sculpt" loading="lazy" />
+        <div class="work-card-overlay">
+          <span class="card-category">Character</span>
+          <h3 class="card-title">Jester</h3>
+          <p class="card-desc">Head sculpt · ZBrush</p>
+        </div>
+      </div>
+
+      <div class="work-card" data-category="study" data-project="portrait">
+        <img src="Renders/Portrait_TA.jpg" alt="Portrait — Anatomy Study" loading="lazy" />
+        <div class="work-card-overlay">
+          <span class="card-category">Study</span>
+          <h3 class="card-title">Portrait Study</h3>
+          <p class="card-desc">Anatomy · Likeness · ZBrush</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="work-more">
+      <a href="https://www.artstation.com/joshboss" target="_blank" rel="noopener" class="btn btn-ghost">View Full Portfolio on ArtStation ↗</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <span class="graffiti-bg graffiti-about" aria-hidden="true">BOSTIC</span>
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="about-eyebrow">Character Artist &amp; 3D Generalist</p>
+        <h2 class="section-title">About</h2>
+        <p>I'm Joshua Bostic, a character artist based in Brooklyn, NY. I work across the full range — realistic anatomy to high stylization — with a focused eye for strong silhouette, expressive design, and cultural authenticity.</p>
+        <p>My characters pull from street culture, animation, and manga, and I bring that same specificity to IP work. I can adapt existing 2D designs into production-ready 3D, build original characters from scratch, or push into creature and grotesque territory when a project calls for it.</p>
+        <p>Available for full-time roles and freelance contracts at game studios, animation studios, and VFX houses.</p>
+      </div>
+      <div class="about-stack">
+        <h3 class="stack-label">Software</h3>
+        <ul class="stack-list">
+          <li>ZBrush</li>
+          <li>Substance Painter</li>
+          <li>Maya</li>
+          <li>Unreal Engine 5</li>
+          <li>Marvelous Designer</li>
+          <li>Photoshop</li>
+        </ul>
+        <h3 class="stack-label">Specializations</h3>
+        <ul class="stack-list">
+          <li>Character Modeling</li>
+          <li>Creature Sculpting</li>
+          <li>High-Poly Sculpt</li>
+          <li>Stylized Characters</li>
+          <li>Anatomy Studies</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <span class="graffiti-bg graffiti-skills" aria-hidden="true">CRAFT</span>
+    <h2 class="section-title">What I Bring</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <span class="skill-num">01</span>
+        <h3 class="skill-name">Stylized &amp; Realistic Range</h3>
+        <p>Most character artists live in one lane. My work spans grounded anatomy to full stylization — useful for studios whose pipelines demand both.</p>
+      </div>
+      <div class="skill-item">
+        <span class="skill-num">02</span>
+        <h3 class="skill-name">2D-to-3D Adaptation</h3>
+        <p>I can take a flat cartoon or manga design and translate its intent into a convincing 3D form without losing what makes the character work.</p>
+      </div>
+      <div class="skill-item">
+        <span class="skill-num">03</span>
+        <h3 class="skill-name">Expressive Character Design</h3>
+        <p>Strong silhouettes, readable from a distance. Creature, grotesque, and villain characters are a specialty — not an afterthought.</p>
+      </div>
+      <div class="skill-item">
+        <span class="skill-num">04</span>
+        <h3 class="skill-name">Clothing &amp; Material Detail</h3>
+        <p>Fabric folds, layered streetwear, tactical gear, soft goods — I treat clothing as a character design tool, not just covering geometry.</p>
+      </div>
+      <div class="skill-item">
+        <span class="skill-num">05</span>
+        <h3 class="skill-name">Street &amp; Urban Aesthetic</h3>
+        <p>A specific cultural lens that most 3D portfolios don't have. Brings authenticity to characters drawn from hip-hop, street fashion, and urban life.</p>
+      </div>
+      <div class="skill-item">
+        <span class="skill-num">06</span>
+        <h3 class="skill-name">Pipeline Awareness</h3>
+        <p>Sculpting is step one. I build with retopo, UVs, texturing, and engine delivery in mind from the start — not as an afterthought at the end.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2 class="section-title">Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-num">01</span>
+        <h3 class="service-title">Character Modeling</h3>
+        <p>Full-body character sculpts from concept or reference — human, humanoid, stylized, or realistic. Delivered game-ready or film-ready with clean topology.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">02</span>
+        <h3 class="service-title">Creature Design</h3>
+        <p>Non-humanoid characters, monsters, and stylized creatures. Strong anatomical foundation adapted to fantastical and original forms.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">03</span>
+        <h3 class="service-title">Full Pipeline</h3>
+        <p>Sculpt → retopology → UV → texturing → rigging → UE5 integration. One artist, end to end.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <span class="graffiti-bg graffiti-contact" aria-hidden="true">3D</span>
+    <div class="contact-inner">
+      <h2 class="section-title">Let's Work</h2>
+      <p class="contact-sub">Available for full-time roles and freelance contracts. Reach out with project details or a job description.</p>
+      <a href="mailto:kiddmag@gmail.com" class="btn btn-primary contact-cta">kiddmag@gmail.com</a>
+      <div class="contact-links">
+        <a href="https://www.artstation.com/joshboss" target="_blank" rel="noopener">ArtStation ↗</a>
+        <a href="https://www.linkedin.com/in/joshua-bostic/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Joshua Bostic &mdash; Character Artist</span>
+    <div class="footer-links">
+      <a href="https://www.artstation.com/joshboss" target="_blank" rel="noopener">ArtStation</a>
+      <a href="https://www.linkedin.com/in/joshua-bostic/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <span>bostic3d.com</span>
+  </footer>
+
+  <!-- PROJECT MODAL -->
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <button class="modal-close" id="modalClose" aria-label="Close project">✕</button>
+    <div class="modal-inner">
+
+      <div class="modal-info">
+        <span class="modal-category" id="modalCategory"></span>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <p class="modal-desc" id="modalDesc"></p>
+        <div class="modal-meta" id="modalMeta"></div>
+        <div class="modal-nav">
+          <button class="modal-nav-btn" id="modalPrev" aria-label="Previous project">← Prev</button>
+          <button class="modal-nav-btn" id="modalNext" aria-label="Next project">Next →</button>
+        </div>
+      </div>
+
+      <div class="modal-gallery">
+        <div class="modal-featured" id="modalFeatured">
+          <img id="modalImg" src="" alt="" />
+          <video id="modalVideo" autoplay muted loop playsinline style="display:none">
+            <source id="modalVideoSrc" src="" type="video/mp4" />
+          </video>
+          <div id="marmosetContainer" class="marmoset-container" style="display:none"></div>
+        </div>
+        <div class="modal-thumbs" id="modalThumbs"></div>
+      </div>
+
+    </div>
+  </div>
+  <div id="modalBackdrop" class="modal-backdrop"></div>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script src="https://viewer.marmoset.co/main/marmoset.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
