@@ -100,18 +100,20 @@ function showMarmoset(mviewPath) {
   modalImg.style.display = 'none';
   modalVideo.style.display = 'none';
   marmosetContainer.style.display = 'block';
-  marmosetContainer.innerHTML = '';
+  destroyMarmoset();
 
-  // Marmoset custom element — works once marmoset.js is loaded
-  const el = document.createElement('marmosettoolbag');
-  el.setAttribute('src', mviewPath);
-  el.setAttribute('width', marmosetContainer.clientWidth || 800);
-  el.setAttribute('height', Math.min(500, window.innerHeight * 0.55));
-  el.setAttribute('load', '1');
-  marmosetContainer.appendChild(el);
+  const w = marmosetContainer.clientWidth || 800;
+  const h = Math.min(500, window.innerHeight * 0.55);
+  const viewer = new marmoset.WebViewer(w, h, mviewPath);
+  marmosetContainer.appendChild(viewer.dom);
+  activeMarmosetViewer = viewer;
 }
 
 function destroyMarmoset() {
+  if (activeMarmosetViewer) {
+    activeMarmosetViewer.unload();
+    activeMarmosetViewer = null;
+  }
   marmosetContainer.innerHTML = '';
 }
 
