@@ -1,8 +1,7 @@
 # Internal dev context
 CLAUDE.md
 
-# Large 3D viewer file — host on CDN before re-adding
-Renders/Jester2.mview
+# (Jester2.mview included — 95.8MB, under GitHub's 100MB limit)
 
 # Unused reference images (local graffiti research, not served by site)
 Renders/Reference/download*.jfif
