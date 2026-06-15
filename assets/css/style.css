@@ -198,6 +198,7 @@ ul {
 /* ===== HERO ===== */
 #hero {
   min-height: 100vh;
+  min-height: 100dvh;
   padding-top: var(--nav-h);
   display: flex;
   flex-direction: column;
@@ -1270,6 +1271,13 @@ footer {
   }
 }
 
+@media (min-width: 540px) and (max-width: 960px) {
+  .services-grid,
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 480px) {
   .hero-cta {
     flex-direction: column;
@@ -1283,5 +1291,13 @@ footer {
     flex-direction: column;
     gap: 0.5rem;
     text-align: center;
+  }
+
+  .modal {
+    padding: 0.5rem;
+  }
+
+  .work-card--wide {
+    aspect-ratio: 16 / 9;
   }
 }
