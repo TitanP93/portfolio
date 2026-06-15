@@ -220,6 +220,7 @@ document.querySelectorAll('.work-card').forEach(card => {
 
 modalClose.addEventListener('click', closeModal);
 backdrop.addEventListener('click', closeModal);
+modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 
 document.getElementById('modalPrev').addEventListener('click', () => {
   if (currentProjectIndex > 0) openModal(projectOrder[currentProjectIndex - 1]);
