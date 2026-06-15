@@ -54,8 +54,7 @@ const projects = {
     category: 'Character',
     desc: 'Grotesque head sculpt study pushing exaggerated facial anatomy and character expression. Features intricate braided hair geometry and stylized proportions that move beyond realistic form into caricature. Focused on surface detail, skin texture, and controlled asymmetry. Interactive 3D viewer available — rotate and inspect the full sculpt.',
     software: ['ZBrush', 'Marmoset Toolbag'],
-    images: ['Renders/Jester_TA.jpg'],
-    mview: 'Renders/Jester2.mview'
+    images: ['Renders/Jester_TA.jpg']
   },
   portrait: {
     title: 'Portrait Study',
