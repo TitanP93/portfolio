@@ -5,7 +5,7 @@ const projects = {
   fallingthings: {
     title: 'Falling Things',
     category: 'Motion',
-    desc: '3D animation piece exploring object dynamics, motion, and timing. Demonstrates understanding of 3D animation principles, physics simulation, and scene composition.',
+    desc: 'A short 3D animation built around object dynamics, timing, and scene composition. Physics-driven motion — focused on how things actually fall, collide, and settle.',
     software: ['3D Animation', 'Motion'],
     video: 'Renders/Fallingthings.mp4',
     images: []
@@ -13,7 +13,7 @@ const projects = {
   thunder: {
     title: 'Thunder',
     category: 'Character',
-    desc: 'Full-body character sculpt built on an original design. Focused on athletic male anatomy, clothing wraps, and a strong readable silhouette. Includes a detailed head study with high-poly surface pass. Turnaround captured from front, 3/4, and side.',
+    desc: 'An original design taken through a full body sculpt. The focus was athletic male anatomy, the way fabric wraps under tension, and a silhouette that reads clean from any angle. Includes a separate head study pushed to high-poly — front, 3/4, and side turnaround.',
     software: ['ZBrush'],
     images: [
       'Renders/Thunder_TA.jpg',
@@ -25,7 +25,7 @@ const projects = {
   pug: {
     title: 'Pug',
     category: 'Character',
-    desc: 'Stylized female character sculpt with strong street fashion influences. Features an oversized shirt, tactical cargo pants, platform boots, and braided hair. Emphasizes stylized proportions, fabric fold detail, and a clean read from every angle.',
+    desc: 'Stylized female sculpt rooted in street fashion. Oversized shirt, tactical cargos, platform boots, braided hair — every clothing choice tells you something about the character. The challenge was keeping the proportions pushed while maintaining a clean read at every angle.',
     software: ['ZBrush'],
     images: [
       'Renders/Pug_TA.jpg',
@@ -35,14 +35,14 @@ const projects = {
   gachiakuta: {
     title: 'Gachiakuta',
     category: 'Stylized',
-    desc: 'Fan art character based on the manga Gachiakuta by Naoki Yamakawa. Translated the 2D manga design into a full 3D sculpt with a polypaint color pass to stay faithful to the source material. Captures the character\'s exaggerated proportions, oversized limbs, and street-worn aesthetic.',
+    desc: 'Fan art from the manga Gachiakuta by Naoki Yamakawa. The challenge was translating a high-energy 2D design into 3D without losing what makes it work — the exaggerated proportions, oversized limbs, street-worn aesthetic. Polypainted to stay faithful to the source.',
     software: ['ZBrush', 'Polypaint'],
     images: ['Renders/Gachiakuta_TA.jpg']
   },
   huey: {
     title: 'Huey',
     category: 'Stylized',
-    desc: 'Cartoon-to-3D adaptation of Huey Freeman from The Boondocks. The challenge was translating a deliberately flat 2D animation style into a cohesive 3D form — preserving the iconic silhouette and character design while giving the model believable volume.',
+    desc: 'Cartoon-to-3D adaptation of Huey Freeman from The Boondocks. The design is deliberately flat — all style, minimal volume. The challenge was giving the model real 3D presence without losing the silhouette and attitude that make the character instantly recognizable.',
     software: ['ZBrush'],
     images: [
       'Renders/Huey_TA.jpg',
@@ -52,14 +52,14 @@ const projects = {
   jester: {
     title: 'Jester',
     category: 'Character',
-    desc: 'Grotesque head sculpt study pushing exaggerated facial anatomy and character expression. Features intricate braided hair geometry and stylized proportions that move beyond realistic form into caricature. Focused on surface detail, skin texture, and controlled asymmetry. Interactive 3D viewer available — rotate and inspect the full sculpt.',
+    desc: 'A head sculpt study in grotesque character expression. Exaggerated anatomy, intricate braided hair, proportions pushed past realism into caricature. The focus was surface detail, skin texture, and the kind of controlled asymmetry that makes a face feel lived-in.',
     software: ['ZBrush', 'Marmoset Toolbag'],
     images: ['Renders/Jester_TA.jpg']
   },
   portrait: {
     title: 'Portrait Study',
     category: 'Study',
-    desc: 'Realistic bust study grounded in human anatomy. Focused on bone structure, facial planes, skin surface quality, and the subtle variation that makes a face read as believable. Demonstrates foundational understanding of head and neck anatomy essential for character work.',
+    desc: 'Realistic bust study grounded in anatomy. Bone structure, facial planes, skin surface — the work underneath that makes a face read as real. This is the foundation everything else builds on.',
     software: ['ZBrush'],
     images: ['Renders/Portrait_TA.jpg']
   }
