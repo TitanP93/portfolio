@@ -39,7 +39,7 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url('../../Renders/Reference/NS.jfif');
+  background-image: url('../../Renders/Reference/new_york_ruby_20260615_190809.png');
   background-size: cover;
   background-position: center;
   opacity: 0.055;
