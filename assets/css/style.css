@@ -732,13 +732,12 @@ footer {
   position: absolute;
   z-index: 0;
   line-height: 1;
-  /* faded orange spray paint — ref 24/25 gold/orange palette */
   color: transparent;
-  -webkit-text-stroke: 1px rgba(184, 15, 10, 0.22);
+  -webkit-text-stroke: 1px rgba(0, 168, 120, 0.22);
   text-shadow:
-    4px 4px 0   rgba(184, 15, 10, 0.07),
-    -2px -2px 0 rgba(184, 15, 10, 0.04),
-    0 0 40px    rgba(184, 15, 10, 0.05);
+    4px 4px 0   rgba(0, 168, 120, 0.07),
+    -2px -2px 0 rgba(0, 168, 120, 0.04),
+    0 0 40px    rgba(0, 168, 120, 0.05);
 }
 
 /* Hero — "CHARACTER" large, upper-left, aggressive angle */
@@ -756,10 +755,10 @@ footer {
   bottom: 10%;
   right: -2%;
   transform: rotate(5deg);
-  -webkit-text-stroke-color: rgba(200, 30, 25, 0.18); /* gold variant */
+  -webkit-text-stroke-color: rgba(0, 168, 120, 0.18);
   text-shadow:
-    3px 3px 0   rgba(200, 30, 25, 0.06),
-    0 0 30px    rgba(200, 30, 25, 0.04);
+    3px 3px 0   rgba(0, 168, 120, 0.06),
+    0 0 30px    rgba(0, 168, 120, 0.04);
 }
 
 /* About — "BOSTIC" centered, slight lean */
@@ -768,7 +767,7 @@ footer {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-4deg);
-  -webkit-text-stroke-color: rgba(184, 15, 10, 0.2);
+  -webkit-text-stroke-color: rgba(0, 168, 120, 0.2);
 }
 
 /* Contact — "3D" massive, centered — ref 24 energy */
@@ -777,10 +776,10 @@ footer {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(6deg);
-  -webkit-text-stroke-color: rgba(200, 30, 25, 0.15);
+  -webkit-text-stroke-color: rgba(0, 168, 120, 0.15);
   text-shadow:
-    6px 6px 0   rgba(184, 15, 10, 0.06),
-    0 0 60px    rgba(200, 30, 25, 0.04);
+    6px 6px 0   rgba(0, 168, 120, 0.06),
+    0 0 60px    rgba(0, 168, 120, 0.04);
 }
 
 /* Sections that host graffiti need position:relative */
@@ -809,10 +808,10 @@ footer {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-5deg);
-  -webkit-text-stroke-color: rgba(184, 15, 10, 0.17);
+  -webkit-text-stroke-color: rgba(0, 168, 120, 0.17);
   text-shadow:
-    3px 3px 0   rgba(184, 15, 10, 0.06),
-    0 0 35px    rgba(184, 15, 10, 0.04);
+    3px 3px 0   rgba(0, 168, 120, 0.06),
+    0 0 35px    rgba(0, 168, 120, 0.04);
 }
 
 /* ===== VIDEO CARD ===== */
