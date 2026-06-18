@@ -184,10 +184,11 @@
 /* ===== BASE ===== */
 html {
   scroll-behavior: smooth;
+  background-color: var(--bg); /* fallback if JS/canvas fails */
 }
 
 body {
-  background-color: var(--bg);
+  background-color: transparent;
   color: var(--text);
   font-family: 'Inter', sans-serif;
   font-size: 16px;

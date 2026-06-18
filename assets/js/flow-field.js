@@ -79,6 +79,10 @@
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.scale(dpr, dpr);
 
+    // Solid fill on init so there's no transparent flash before first animate tick
+    ctx.fillStyle = 'rgb(' + BG + ')';
+    ctx.fillRect(0, 0, width, height);
+
     particles = Array.from({ length: COUNT }, (_, i) => new Particle(true));
   }
 
