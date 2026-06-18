@@ -715,7 +715,7 @@ ul {
 }
 
 .work-card-overlay::after {
-  content: 'Open â†’';
+  content: ‘Open \2192’;
   display: block;
   font-size: 0.62rem;
   letter-spacing: 0.12em;
