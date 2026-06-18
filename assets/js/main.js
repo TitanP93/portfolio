@@ -91,6 +91,14 @@ const projects = {
     desc: 'Realistic bust study grounded in anatomy. Bone structure, facial planes, skin surface — the work underneath that makes a face read as real. This is the foundation everything else builds on.',
     software: ['ZBrush'],
     images: ['Renders/Portrait_TA.jpg']
+  },
+  milk: {
+    title: 'Milk',
+    category: 'Motion',
+    desc: 'A 3D animation project exploring fluid motion, timing, and material behavior. Built and rendered as a standalone motion piece.',
+    software: ['3D Animation', 'Motion'],
+    video: 'Renders/Milk.mp4',
+    images: []
   }
 };
 
@@ -105,7 +113,7 @@ const modalThumbs = document.getElementById('modalThumbs');
 const marmosetContainer = document.getElementById('marmosetContainer');
 
 let activeMarmosetViewer = null;
-const projectOrder = ['fallingthings', 'thunder', 'pug', 'gachiakuta', 'huey', 'jester', 'portrait'];
+const projectOrder = ['fallingthings', 'thunder', 'pug', 'gachiakuta', 'huey', 'jester', 'portrait', 'milk'];
 let currentProjectIndex = -1;
 
 function updateModalNav() {
