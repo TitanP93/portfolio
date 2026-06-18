@@ -263,33 +263,34 @@ gsap.from('.hero-scroll', { opacity: 0, duration: 1, ease: 'power2.out', delay: 
 gsap.utils.toArray('.work-card').forEach((card, i) => {
   gsap.from(card, {
     scrollTrigger: { trigger: card, start: 'top 88%' },
-    y: 40, opacity: 0, duration: 0.65, ease: 'power2.out',
-    delay: (i % 2) * 0.12
+    y: 44, opacity: 0, scale: 0.97, duration: 0.72, ease: 'power2.out',
+    delay: (i % 3) * 0.1
   });
 });
 
+// About: text from left, stack from right — split reveal
 gsap.from('.about-text', {
   scrollTrigger: { trigger: '#about', start: 'top 75%' },
-  y: 30, opacity: 0, duration: 0.8, ease: 'power2.out'
+  x: -45, opacity: 0, duration: 0.95, ease: 'power3.out'
 });
 gsap.from('.about-stack', {
   scrollTrigger: { trigger: '#about', start: 'top 75%' },
-  y: 30, opacity: 0, duration: 0.8, ease: 'power2.out', delay: 0.15
+  x: 45, opacity: 0, duration: 0.95, ease: 'power3.out', delay: 0.1
 });
 
 gsap.from('.skill-item', {
   scrollTrigger: { trigger: '#skills', start: 'top 78%' },
-  y: 30, opacity: 0, duration: 0.65, ease: 'power2.out', stagger: 0.08
+  y: 32, opacity: 0, scale: 0.95, duration: 0.6, ease: 'power2.out', stagger: 0.07
 });
 
 gsap.from('.service-card', {
   scrollTrigger: { trigger: '#services', start: 'top 78%' },
-  y: 30, opacity: 0, duration: 0.65, ease: 'power2.out', stagger: 0.12
+  y: 32, opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.out', stagger: 0.1
 });
 
 gsap.from('.contact-inner', {
   scrollTrigger: { trigger: '#contact', start: 'top 78%' },
-  y: 30, opacity: 0, duration: 0.8, ease: 'power2.out'
+  y: 55, opacity: 0, scale: 0.96, duration: 1.05, ease: 'power3.out'
 });
 
 // ===== BACK TO TOP + HERO SCROLL FADE =====
