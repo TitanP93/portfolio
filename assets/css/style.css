@@ -451,6 +451,26 @@ ul {
   letter-spacing: 0.02em;
 }
 
+.work-card-overlay::after {
+  content: 'Open →';
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 0.6rem;
+}
+
+.work-count {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  vertical-align: super;
+  margin-left: 0.4rem;
+}
+
 .work-card.hidden {
   display: none;
 }

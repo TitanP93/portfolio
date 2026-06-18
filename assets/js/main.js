@@ -338,6 +338,54 @@ const sectionObserver = new IntersectionObserver((entries) => {
 
 navSections.forEach(s => sectionObserver.observe(s));
 
+// ===== HERO TEXT SCRAMBLE =====
+(function() {
+  const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#!';
+  const heroLines = document.querySelectorAll('.hero-line');
+
+  function scramble(el, delay) {
+    const target = el.textContent.trim();
+    const totalFrames = 42;
+    let frame = 0;
+    setTimeout(() => {
+      const tick = setInterval(() => {
+        let out = '';
+        for (let i = 0; i < target.length; i++) {
+          const revealAt = Math.floor((i / target.length) * totalFrames * 0.65);
+          if (frame >= revealAt + 12) {
+            out += target[i];
+          } else {
+            out += CHARS[Math.floor(Math.random() * CHARS.length)];
+          }
+        }
+        el.textContent = out;
+        if (++frame > totalFrames) {
+          clearInterval(tick);
+          el.textContent = target;
+        }
+      }, 28);
+    }, delay);
+  }
+
+  // Fire after GSAP hero entrance animation finishes (~1.6s)
+  setTimeout(() => {
+    heroLines.forEach((el, i) => scramble(el, i * 230));
+  }, 1600);
+})();
+
+// ===== MAGNETIC HERO BUTTONS =====
+document.querySelectorAll('.hero-cta .btn').forEach(btn => {
+  btn.addEventListener('mousemove', (e) => {
+    const rect = btn.getBoundingClientRect();
+    const dx = (e.clientX - (rect.left + rect.width  / 2)) * 0.22;
+    const dy = (e.clientY - (rect.top  + rect.height / 2)) * 0.28;
+    gsap.to(btn, { x: dx, y: dy, duration: 0.3, ease: 'power2.out' });
+  });
+  btn.addEventListener('mouseleave', () => {
+    gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1, 0.4)' });
+  });
+});
+
 // ===== CUSTOM CURSOR =====
 if (window.matchMedia('(pointer: fine)').matches) {
   const cursorDot  = document.querySelector('.cursor-dot');
