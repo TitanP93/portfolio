@@ -20,6 +20,26 @@
   --pad:         4rem;
 }
 
+/* ===== SKIP NAV ===== */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  z-index: 20000;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
 /* ===== PRELOADER ===== */
 #preloader {
   position: fixed;
