@@ -21,6 +21,8 @@
 </head>
 <body>
 
+  <div class="scroll-progress" aria-hidden="true"></div>
+
   <nav id="nav">
     <a href="#hero" class="nav-logo">BOSTIC<span>3D</span></a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -64,7 +66,10 @@
 
   <section id="work">
     <div class="section-header">
-      <h2 class="section-title">Work <span class="work-count">07</span></h2>
+      <div>
+        <p class="section-eyebrow">Selected Work</p>
+        <h2 class="section-title">Work <span class="work-count">07</span></h2>
+      </div>
       <div class="work-filters">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="character">Characters</button>

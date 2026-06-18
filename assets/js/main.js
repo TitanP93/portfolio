@@ -293,6 +293,15 @@ gsap.from('.contact-inner', {
   y: 55, opacity: 0, scale: 0.96, duration: 1.05, ease: 'power3.out'
 });
 
+// ===== SCROLL PROGRESS BAR =====
+const progressBar = document.querySelector('.scroll-progress');
+if (progressBar) {
+  window.addEventListener('scroll', () => {
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = ((window.scrollY / total) * 100) + '%';
+  }, { passive: true });
+}
+
 // ===== BACK TO TOP + HERO SCROLL FADE =====
 const backToTop = document.getElementById('backToTop');
 const heroScrollEl = document.querySelector('.hero-scroll');
