@@ -853,7 +853,14 @@ ul {
   margin-top: 2.5rem;
 }
 
-.about-stack .stack-label:first-child {
+.stack-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 2rem;
+  margin-top: 2rem;
+}
+
+.stack-cols .stack-label {
   margin-top: 0;
 }
 
