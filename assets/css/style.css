@@ -740,7 +740,7 @@ ul {
 
 /* Clickability indicator â€” arrow slides in from top-right on hover */
 .work-card::before {
-  content: 'â†—';
+  content: '\2197';
   position: absolute;
   top: 1.25rem;
   right: 1.25rem;
@@ -1007,7 +1007,7 @@ ul {
 }
 
 .contact-cta::after {
-  content: ' â†’';
+  content: ‘ \2192’;
   display: inline-block;
   transition: transform 0.3s ease;
 }
