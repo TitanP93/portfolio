@@ -471,18 +471,15 @@ if (window.matchMedia('(pointer: fine)').matches) {
     const dx = ((e.clientX - rect.left) / rect.width  - 0.5) * 2; // -1 to 1
     const dy = ((e.clientY - rect.top)  / rect.height - 0.5) * 2;
     gsap.to(heroImg, {
-      x: dx * 14,
-      y: dy * 9,
-      rotateY: dx * 3.5,
-      rotateX: -dy * 2.5,
+      x: dx * 10,
+      y: dy * 7,
       duration: 0.9,
-      ease: 'power2.out',
-      transformPerspective: 900
+      ease: 'power2.out'
     });
   });
 
   heroSection.addEventListener('mouseleave', () => {
-    gsap.to(heroImg, { x: 0, y: 0, rotateY: 0, rotateX: 0, duration: 0.9, ease: 'power2.out' });
+    gsap.to(heroImg, { x: 0, y: 0, duration: 0.9, ease: 'power2.out' });
   });
 })();
 
