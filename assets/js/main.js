@@ -173,8 +173,10 @@ function openModal(projectId) {
     marmosetContainer.style.display = 'none';
     modalVideo.style.display = 'block';
     modalVideoSrc.src = p.video;
-    modalVideo.load();
-    modalVideo.play();
+    requestAnimationFrame(() => {
+      modalVideo.load();
+      modalVideo.play().catch(() => {});
+    });
   } else {
     modalVideo.style.display = 'none';
     modalVideo.pause();
@@ -224,6 +226,9 @@ function openModal(projectId) {
   } else {
     modal.setAttribute('aria-hidden', 'false');
     backdrop.classList.add('active');
+    // Compensate scrollbar width so layout doesn't shift on lock
+    const scrollBarW = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.paddingRight = scrollBarW + 'px';
     document.body.style.overflow = 'hidden';
     gsap.fromTo(modal,
       { opacity: 0, y: 30 },
@@ -240,7 +245,9 @@ function closeModal() {
       modal.setAttribute('aria-hidden', 'true');
       backdrop.classList.remove('active');
       document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
       modalVideo.pause();
+      modalVideoSrc.src = '';
       destroyMarmoset();
     }
   });
@@ -528,3 +535,28 @@ filterBtns.forEach(btn => {
     document.getElementById('workGrid').style.gridTemplateColumns = '';
   });
 });
+
+// ===== MARQUEE =====
+(function () {
+  const track = document.querySelector('.marquee-track');
+  if (!track || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // Snapshot original items before any cloning
+  const originals = [...track.children];
+  const origCount = originals.length;
+
+  // Clone until track is at least 3x the viewport wide
+  // so the loop point is always off-screen regardless of window size
+  while (track.scrollWidth < window.innerWidth * 3) {
+    originals.forEach(el => track.appendChild(el.cloneNode(true)));
+  }
+
+  // Width of exactly one set of items
+  const setWidth = track.scrollWidth / (track.children.length / origCount);
+
+  // GSAP animates one full set left, repeats — seam is always off-screen
+  gsap.fromTo(track,
+    { x: 0 },
+    { x: -setWidth, duration: setWidth / 80, ease: 'none', repeat: -1 }
+  );
+})();
