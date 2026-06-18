@@ -448,6 +448,15 @@ if (window.matchMedia('(pointer: fine)').matches) {
   });
 })();
 
+// ===== WORK CARD NUMBERS =====
+document.querySelectorAll('.work-card').forEach((card, i) => {
+  const numEl = document.createElement('span');
+  numEl.className = 'card-num';
+  numEl.setAttribute('aria-hidden', 'true');
+  numEl.textContent = String(i + 1).padStart(2, '0');
+  card.prepend(numEl);
+});
+
 // ===== PORTFOLIO FILTER =====
 const filterBtns = document.querySelectorAll('.filter-btn');
 const cards = document.querySelectorAll('.work-card');
