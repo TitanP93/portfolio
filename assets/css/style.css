@@ -191,11 +191,24 @@ ul {
   text-transform: uppercase;
   color: var(--text-muted);
   transition: color 0.2s ease;
+  position: relative;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--text);
+}
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
 }
 
 /* ===== HAMBURGER ===== */
@@ -528,7 +541,7 @@ ul {
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.88));
   transform: translateY(8px);
   opacity: 0;
-  transition: transform 0.35s ease, opacity 0.35s ease;
+  transition: transform 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.32s ease;
 }
 
 .work-card:hover .work-card-overlay {
@@ -793,13 +806,26 @@ ul {
   transition: color 0.2s ease;
 }
 
+/* Ghost number — echoes skill section treatment */
 .service-num {
-  display: block;
+  position: absolute;
+  top: -0.25rem;
+  right: 0.75rem;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-  margin-bottom: 1.75rem;
+  font-size: clamp(5rem, 8vw, 7.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0, 168, 120, 0.08);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  transition: -webkit-text-stroke-color 0.35s ease;
+}
+
+.service-card:hover .service-num {
+  -webkit-text-stroke-color: rgba(0, 168, 120, 0.2);
 }
 
 .service-title {
@@ -808,12 +834,16 @@ ul {
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .service-card p {
   font-size: 0.88rem;
   color: var(--text-muted);
   line-height: 1.75;
+  position: relative;
+  z-index: 1;
 }
 
 /* ===== CONTACT ===== */
@@ -900,6 +930,21 @@ footer {
   font-size: 0.72rem;
   color: var(--text-muted);
   letter-spacing: 0.04em;
+}
+
+.footer-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulse-dot 2.4s ease-in-out infinite;
 }
 
 .footer-links {
@@ -1556,6 +1601,10 @@ footer {
   .about-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
+  }
+
+  .about-portrait img {
+    aspect-ratio: 16 / 9;
   }
 
   .services-grid,
