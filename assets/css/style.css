@@ -1154,67 +1154,86 @@ footer {
 /* ===== CLIENTS ===== */
 #clients {
   border-top: 1px solid var(--border);
-  padding: 4rem var(--pad);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  padding: 3rem var(--pad);
 }
 
-.clients-inner {
+.clients-eyebrow {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   max-width: var(--max-w);
   margin: 0 auto;
+  border: 1px solid var(--border);
+}
+
+.client-slot {
   display: flex;
   align-items: center;
-  gap: 3rem;
-  flex-wrap: wrap;
+  justify-content: center;
+  padding: 3rem 2rem;
+  border-right: 1px solid var(--border);
+  min-height: 120px;
+  transition: background 0.25s ease;
 }
 
-.clients-inner .section-eyebrow {
-  flex-shrink: 0;
-  margin: 0;
+.client-slot:last-child {
+  border-right: none;
 }
 
-.clients-list {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  flex-wrap: wrap;
-  list-style: none;
+.client-slot:hover {
+  background: var(--surface-2);
 }
 
-.clients-list li {
+.client-slot img {
+  max-width: 140px;
+  max-height: 50px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.45;
+  transition: opacity 0.25s ease;
+}
+
+.client-slot:hover img {
+  opacity: 0.75;
+}
+
+.client-name {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--text-muted);
-  padding: 0 2rem;
-  border-left: 1px solid var(--border);
-  transition: color 0.2s ease;
+  text-align: center;
+  line-height: 1.6;
+  transition: color 0.25s ease;
 }
 
-.clients-list li:first-child {
-  border-left: none;
-  padding-left: 0;
-}
-
-.clients-list li:hover {
+.client-slot:hover .client-name {
   color: var(--text);
 }
 
 @media (max-width: 600px) {
-  .clients-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
+  .clients-grid {
+    grid-template-columns: 1fr;
   }
 
-  .clients-list {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
+  .client-slot {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    min-height: 90px;
   }
 
-  .clients-list li {
-    border-left: none;
-    padding: 0;
+  .client-slot:last-child {
+    border-bottom: none;
   }
 }
 
