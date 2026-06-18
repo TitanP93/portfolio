@@ -1,3 +1,32 @@
+// ===== PRELOADER =====
+(function() {
+  const preloader = document.getElementById('preloader');
+  const preloaderText = document.getElementById('preloaderText');
+  if (!preloader || !preloaderText) return;
+
+  const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  const target = 'BOSTIC3D';
+  const totalFrames = 22;
+  let frame = 0;
+
+  const tick = setInterval(() => {
+    let out = '';
+    for (let i = 0; i < target.length; i++) {
+      const revealAt = Math.floor((i / target.length) * totalFrames * 0.55);
+      out += (frame >= revealAt + 8) ? target[i] : CHARS[Math.floor(Math.random() * CHARS.length)];
+    }
+    preloaderText.textContent = out;
+    if (++frame > totalFrames) {
+      clearInterval(tick);
+      preloaderText.textContent = target;
+      setTimeout(() => {
+        preloader.classList.add('hidden');
+        setTimeout(() => preloader.remove(), 550);
+      }, 300);
+    }
+  }, 26);
+})();
+
 gsap.registerPlugin(ScrollTrigger);
 
 // ===== PROJECT DATA =====
