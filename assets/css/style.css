@@ -1555,6 +1555,29 @@ footer {
   color: var(--accent);
 }
 
+/* Video label thumb — same layout as --3d */
+.modal-thumb--video {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-2);
+  border: 2px solid var(--border);
+}
+
+.modal-thumb--video span {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.modal-thumb--video:hover span,
+.modal-thumb--video.active span {
+  color: var(--accent);
+}
+
 /* ===== CUSTOM CURSOR (mouse only) ===== */
 @media (pointer: fine) {
   body.has-cursor,

@@ -83,7 +83,11 @@ const projects = {
     category: 'Character',
     desc: 'My mascot. Started as a head sculpt study in 2023 and became the character I keep coming back to — grotesque anatomy, intricate braided hair, proportions pushed past realism into caricature. The focus was surface detail, skin texture, and the kind of controlled asymmetry that makes a face feel lived-in. Includes a full rig and turntable renders.',
     software: ['ZBrush', 'Maya', 'Marmoset Toolbag'],
-    video: 'Renders/Jester_v1_crowned.mp4',
+    videos: [
+      { src: 'Renders/Jester_v1_crowned.mp4', label: 'Crowned' },
+      { src: 'Renders/Jester_v1_rig.mp4',     label: 'Rig' },
+      { src: 'Renders/Jester_v1_wireframe.mp4', label: 'Wireframe' }
+    ],
     images: [
       'Renders/Jester_v1_turn.jpg',
       'Renders/Jester_v1_normal.jpg',
@@ -175,11 +179,12 @@ function openModal(projectId) {
   meta.innerHTML = p.software.map(s => `<span class="meta-tag">${s}</span>`).join('');
 
   // Default featured media
-  if (p.video) {
+  if (p.videos || p.video) {
+    const src = p.videos ? p.videos[0].src : p.video;
     modalImg.style.display = 'none';
     marmosetContainer.style.display = 'none';
     modalVideo.style.display = 'block';
-    modalVideoSrc.src = p.video;
+    modalVideoSrc.src = src;
     requestAnimationFrame(() => {
       modalVideo.load();
       modalVideo.play().catch(() => {});
@@ -197,10 +202,31 @@ function openModal(projectId) {
   // Thumbnails
   modalThumbs.innerHTML = '';
 
+  // Video thumbnails (multi-video projects)
+  if (p.videos) {
+    p.videos.forEach((v, i) => {
+      const thumb = document.createElement('div');
+      thumb.className = 'modal-thumb modal-thumb--video' + (i === 0 ? ' active' : '');
+      thumb.innerHTML = `<span>${v.label}</span>`;
+      thumb.title = v.label;
+      thumb.addEventListener('click', () => {
+        document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+        modalImg.style.display = 'none';
+        marmosetContainer.style.display = 'none';
+        destroyMarmoset();
+        modalVideo.style.display = 'block';
+        modalVideoSrc.src = v.src;
+        requestAnimationFrame(() => { modalVideo.load(); modalVideo.play().catch(() => {}); });
+      });
+      modalThumbs.appendChild(thumb);
+    });
+  }
+
   if (p.images.length > 0) {
     p.images.forEach((src, i) => {
       const thumb = document.createElement('div');
-      const isFirst = i === 0 && !p.video;
+      const isFirst = i === 0 && !p.video && !p.videos;
       thumb.className = 'modal-thumb' + (isFirst ? ' active' : '');
       thumb.innerHTML = `<img src="${src}" alt="${p.title} view ${i + 1}" loading="lazy" />`;
       thumb.addEventListener('click', () => {
