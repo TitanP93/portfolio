@@ -79,11 +79,18 @@ const projects = {
     ]
   },
   jester: {
-    title: 'Jester',
+    title: 'Jester v1',
     category: 'Character',
-    desc: 'A head sculpt study in grotesque character expression. Exaggerated anatomy, intricate braided hair, proportions pushed past realism into caricature. The focus was surface detail, skin texture, and the kind of controlled asymmetry that makes a face feel lived-in.',
-    software: ['ZBrush', 'Marmoset Toolbag'],
-    images: ['Renders/Jester_TA.jpg']
+    desc: 'My mascot. Started as a head sculpt study in 2023 and became the character I keep coming back to — grotesque anatomy, intricate braided hair, proportions pushed past realism into caricature. The focus was surface detail, skin texture, and the kind of controlled asymmetry that makes a face feel lived-in. Includes a full rig and turntable renders.',
+    software: ['ZBrush', 'Maya', 'Marmoset Toolbag'],
+    video: 'Renders/Jester_v1_crowned.mp4',
+    images: [
+      'Renders/Jester_v1_turn.jpg',
+      'Renders/Jester_v1_normal.jpg',
+      'Renders/Jester_v1_wire.jpg',
+      'Renders/Jester_TA.jpg'
+    ],
+    mview: 'Renders/Jester2.mview'
   },
   portrait: {
     title: 'Portrait Study',
