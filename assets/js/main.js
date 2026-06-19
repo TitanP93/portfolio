@@ -150,7 +150,7 @@ const modalThumbs = document.getElementById('modalThumbs');
 const marmosetContainer = document.getElementById('marmosetContainer');
 
 let activeMarmosetViewer = null;
-const projectOrder = ['fallingthings', 'thunder', 'pug', 'gachiakuta', 'huey', 'jester', 'jesterv2', 'portrait', 'milk', 'danganronpakatana'];
+const projectOrder = ['fallingthings', 'thunder', 'pug', 'gachiakuta', 'huey', 'jester', 'jesterv2', 'portrait', 'danganronpakatana', 'milk'];
 let currentProjectIndex = -1;
 
 function updateModalNav() {
