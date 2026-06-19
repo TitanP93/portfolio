@@ -84,17 +84,24 @@ const projects = {
     desc: 'My mascot. Started as a head sculpt study in 2023 and became the character I keep coming back to — grotesque anatomy, intricate braided hair, proportions pushed past realism into caricature. The focus was surface detail, skin texture, and the kind of controlled asymmetry that makes a face feel lived-in. Includes a full rig and turntable renders.',
     software: ['ZBrush', 'Maya', 'Marmoset Toolbag'],
     videos: [
-      { src: 'Renders/Jester_v1_crowned.mp4', label: 'Crowned' },
-      { src: 'Renders/Jester_v1_rig.mp4',     label: 'Rig' },
-      { src: 'Renders/Jester_v1_wireframe.mp4', label: 'Wireframe' }
+      { src: 'Renders/Jester_v1_crowned.mp4',   label: 'Crowned' },
+      { src: 'Renders/Jester_v1_rig.mp4',        label: 'Rig' },
+      { src: 'Renders/Jester_v1_wireframe.mp4',  label: 'Wireframe' },
+      { src: 'Renders/Jester_v1_normals.mp4',    label: 'Normals' }
     ],
     images: [
       'Renders/Jester_v1_turn.jpg',
       'Renders/Jester_v1_normal.jpg',
-      'Renders/Jester_v1_wire.jpg',
-      'Renders/Jester_TA.jpg'
+      'Renders/Jester_v1_wire.jpg'
     ],
     mview: 'Renders/Jester2.mview'
+  },
+  jesterv2: {
+    title: 'Jester v2',
+    category: 'Character',
+    desc: 'The mascot, continued. An updated pass on the Jester character — pushing the sculpt, texturing, and presentation further than v1. The same character, sharper execution.',
+    software: ['ZBrush', 'Maya', 'Marmoset Toolbag'],
+    images: ['Renders/Jester_TA.jpg']
   },
   portrait: {
     title: 'Portrait Study',
@@ -124,7 +131,7 @@ const modalThumbs = document.getElementById('modalThumbs');
 const marmosetContainer = document.getElementById('marmosetContainer');
 
 let activeMarmosetViewer = null;
-const projectOrder = ['fallingthings', 'thunder', 'pug', 'gachiakuta', 'huey', 'jester', 'portrait', 'milk'];
+const projectOrder = ['fallingthings', 'thunder', 'pug', 'gachiakuta', 'huey', 'jester', 'jesterv2', 'portrait', 'milk'];
 let currentProjectIndex = -1;
 
 function updateModalNav() {
