@@ -103,10 +103,22 @@ const projects = {
     software: ['ZBrush', 'Maya', 'Marmoset Toolbag'],
     images: ['Renders/Jester_TA.jpg']
   },
-  portrait: {
-    title: 'Portrait Study',
+  selfstudyv1: {
+    title: 'Self Study v1',
     category: 'Study',
-    desc: 'Realistic bust study grounded in anatomy. Bone structure, facial planes, skin surface — the work underneath that makes a face read as real. This is the foundation everything else builds on.',
+    desc: 'Self-portrait study — likeness work grounded in real anatomy. Bone structure, skin surface, and the specific proportions that make a face recognizable. The turntable shows the full sculpt from every angle.',
+    software: ['ZBrush', 'Marmoset Toolbag'],
+    video: 'Renders/SelfStudy_v1_turn.mp4',
+    images: [
+      'Renders/SelfStudy_v1_turn.jpg',
+      'Renders/SelfStudy_v1_normal.jpg',
+      'Renders/SelfStudy_v1_wire.jpg'
+    ]
+  },
+  portrait: {
+    title: 'Self Study v2',
+    category: 'Study',
+    desc: 'Continued self-portrait study — pushing anatomy, likeness, and skin detail further than v1. Bone structure, facial planes, surface texture. The work underneath that makes a face read as real.',
     software: ['ZBrush'],
     images: ['Renders/Portrait_TA.jpg']
   },
@@ -150,7 +162,7 @@ const modalThumbs = document.getElementById('modalThumbs');
 const marmosetContainer = document.getElementById('marmosetContainer');
 
 let activeMarmosetViewer = null;
-const projectOrder = ['fallingthings', 'thunder', 'pug', 'gachiakuta', 'huey', 'jester', 'jesterv2', 'portrait', 'danganronpakatana', 'milk'];
+const projectOrder = ['fallingthings', 'thunder', 'pug', 'gachiakuta', 'huey', 'jester', 'jesterv2', 'selfstudyv1', 'portrait', 'danganronpakatana', 'milk'];
 let currentProjectIndex = -1;
 
 function updateModalNav() {
