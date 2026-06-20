@@ -364,9 +364,23 @@ document.getElementById('modalNext').addEventListener('click', () => {
 
 document.addEventListener('keydown', e => {
   if (!modal.classList.contains('active')) return;
-  if (e.key === 'Escape') { closeModal(); return; }
+  if (e.key === 'Escape') {
+    if (document.fullscreenElement) return; // browser exits fullscreen natively; don't close modal
+    closeModal(); return;
+  }
   if (e.key === 'ArrowLeft' && currentProjectIndex > 0) openModal(projectOrder[currentProjectIndex - 1]);
   if (e.key === 'ArrowRight' && currentProjectIndex < projectOrder.length - 1) openModal(projectOrder[currentProjectIndex + 1]);
+});
+
+// Fullscreen on featured image/video click
+document.getElementById('modalFeatured').addEventListener('click', () => {
+  const el = document.getElementById('modalFeatured');
+  if (!el.requestFullscreen) return;
+  if (!document.fullscreenElement) {
+    el.requestFullscreen().catch(() => {});
+  } else {
+    document.exitFullscreen();
+  }
 });
 
 // ===== NAV SCROLL =====
