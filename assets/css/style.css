@@ -1232,7 +1232,8 @@ footer {
   }
 
   .client-slot img {
-    opacity: 0.75;
+    filter: grayscale(1) brightness(4);
+    opacity: 0.8;
   }
 
   .client-slot:last-child {
