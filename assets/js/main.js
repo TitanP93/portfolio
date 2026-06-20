@@ -372,8 +372,9 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight' && currentProjectIndex < projectOrder.length - 1) openModal(projectOrder[currentProjectIndex + 1]);
 });
 
-// Fullscreen on featured image/video click
+// Fullscreen on featured image/video click (skip when 3D viewer is active)
 document.getElementById('modalFeatured').addEventListener('click', () => {
+  if (marmosetContainer.style.display !== 'none') return;
   const el = document.getElementById('modalFeatured');
   if (!el.requestFullscreen) return;
   if (!document.fullscreenElement) {
