@@ -1231,6 +1231,10 @@ footer {
     min-height: 90px;
   }
 
+  .client-slot img {
+    opacity: 0.75;
+  }
+
   .client-slot:last-child {
     border-bottom: none;
   }
