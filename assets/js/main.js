@@ -125,8 +125,8 @@ const projects = {
   milk: {
     title: 'Milk',
     category: 'Motion',
-    desc: 'A 3D animation project exploring fluid motion, timing, and material behavior. Built and rendered as a standalone motion piece.',
-    software: ['3D Animation', 'Motion'],
+    desc: 'Background element built for an Inner Force video centered on children\'s nutrition. Flowing milk simulation — fluid dynamics handled in Houdini, scene built in Maya, composited in After Effects. The brief was simple: make it feel like food.',
+    software: ['Houdini', 'Maya', 'After Effects'],
     video: 'Renders/Milk.mp4',
     images: []
   },
@@ -240,6 +240,24 @@ function openModal(projectId) {
   // Thumbnails
   modalThumbs.innerHTML = '';
 
+  // Single-video thumb — lets user navigate back to video after clicking image thumbs
+  if (p.video) {
+    const vthumb = document.createElement('div');
+    vthumb.className = 'modal-thumb modal-thumb--video active';
+    vthumb.innerHTML = '<span>Video</span>';
+    vthumb.addEventListener('click', () => {
+      document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
+      vthumb.classList.add('active');
+      modalImg.style.display = 'none';
+      marmosetContainer.style.display = 'none';
+      destroyMarmoset();
+      modalVideo.style.display = 'block';
+      modalVideoSrc.src = p.video;
+      requestAnimationFrame(() => { modalVideo.load(); modalVideo.play().catch(() => {}); });
+    });
+    modalThumbs.appendChild(vthumb);
+  }
+
   // Video thumbnails (multi-video projects)
   if (p.videos) {
     p.videos.forEach((v, i) => {
@@ -276,8 +294,8 @@ function openModal(projectId) {
     });
   }
 
-  // 3D viewer thumb if mview exists
-  if (p.mview) {
+  // 3D viewer thumb — only when Marmoset script is loaded
+  if (p.mview && typeof marmoset !== 'undefined') {
     const thumb3d = document.createElement('div');
     thumb3d.className = 'modal-thumb modal-thumb--3d';
     thumb3d.innerHTML = `<span>3D</span>`;
