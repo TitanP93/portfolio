@@ -12,12 +12,13 @@
   --surface-2:   #1a1a1a;
   --border:      #222222;
   --text:        #f0ede8;
-  --text-muted:  #686868;
+  --text-muted:  #8a8a8a;
   --accent:      #B80F0A;
   --accent-h:    #cc1510;
   --nav-h:       72px;
   --max-w:       1400px;
   --pad:         4rem;
+  --section-v:   8rem;
 }
 
 /* ===== SKIP NAV ===== */
@@ -47,6 +48,9 @@
   border-bottom: 1px solid var(--border);
   padding: 0.7rem 0;
   background: var(--surface);
+  width: 100%;
+  max-width: 100%;
+  position: relative;
 }
 
 .marquee-track {
@@ -180,6 +184,8 @@
 html {
   scroll-behavior: smooth;
   background-color: var(--bg); /* fallback if JS/canvas fails */
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -189,6 +195,8 @@ body {
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 
 /* Film grain overlay â€” subtle noise texture for premium tactile feel */
@@ -369,7 +377,7 @@ ul {
 
 .btn-primary {
   background: var(--accent);
-  color: #0a0a0a;
+  color: #ffffff;
 }
 
 .btn-primary:hover {
@@ -569,7 +577,7 @@ ul {
 /* ===== WORK ===== */
 #work {
   border-top: 1px solid var(--border);
-  padding: 8rem var(--pad);
+  padding: var(--section-v) var(--pad);
 }
 
 .section-header {
@@ -755,7 +763,7 @@ ul {
 /* ===== ABOUT ===== */
 #about {
   border-top: 1px solid var(--border);
-  padding: 8rem var(--pad);
+  padding: var(--section-v) var(--pad);
 }
 
 .about-grid {
@@ -880,7 +888,7 @@ ul {
 /* ===== SERVICES ===== */
 #services {
   border-top: 1px solid var(--border);
-  padding: 8rem var(--pad);
+  padding: var(--section-v) var(--pad);
 }
 
 #services .section-title {
@@ -976,7 +984,7 @@ ul {
 /* ===== CONTACT ===== */
 #contact {
   border-top: 1px solid var(--border);
-  padding: 10rem var(--pad);
+  padding: var(--section-v) var(--pad);
   text-align: center;
 }
 
@@ -1244,7 +1252,7 @@ footer {
 /* ===== SKILLS ===== */
 #skills {
   border-top: 1px solid var(--border);
-  padding: 8rem var(--pad);
+  padding: var(--section-v) var(--pad);
 }
 
 #skills .section-title {
@@ -1773,12 +1781,16 @@ footer {
     font-size: clamp(3.5rem, 14vw, 5rem);
   }
 
+  :root {
+    --section-v: 5rem;
+  }
+
   #work,
   #about,
   #skills,
   #services,
   #contact {
-    padding: 5rem var(--pad);
+    padding: var(--section-v) var(--pad);
   }
 
   .work-grid {
