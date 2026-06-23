@@ -416,14 +416,13 @@ gsap.utils.toArray('.work-card').forEach((card, i) => {
   });
 });
 
-// About: text from left, stack from right — split reveal
 gsap.from('.about-text', {
   scrollTrigger: { trigger: '#about', start: 'top 75%' },
-  x: -45, opacity: 0, duration: 0.95, ease: 'power3.out'
+  y: 36, opacity: 0, duration: 0.95, ease: 'power3.out'
 });
 gsap.from('.about-stack', {
   scrollTrigger: { trigger: '#about', start: 'top 75%' },
-  x: 45, opacity: 0, duration: 0.95, ease: 'power3.out', delay: 0.1
+  y: 36, opacity: 0, duration: 0.95, ease: 'power3.out', delay: 0.1
 });
 
 gsap.from('.skill-item', {

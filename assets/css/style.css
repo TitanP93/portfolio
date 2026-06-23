@@ -44,6 +44,7 @@
 /* ===== MARQUEE STRIP ===== */
 .marquee-strip {
   overflow: hidden;
+  overflow-x: clip;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   padding: 0.7rem 0;
