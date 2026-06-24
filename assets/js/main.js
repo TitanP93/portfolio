@@ -136,7 +136,7 @@ const projects = {
     desc: 'A prop build based on the iconic katana from Danganronpa. Stylized to match the game\'s high-contrast aesthetic — clean geometry, sharp material reads, emission detail. Includes a full front turntable with normals and wireframe passes.',
     software: ['ZBrush', 'Substance Painter', 'Marmoset Toolbag'],
     videos: [
-      { src: 'Renders/Danganronpa_Thirdcyc.mp4',           label: 'Thirdcyc' },
+      { src: 'Renders/Danganronpa_Thirdcyc.mp4',           label: 'DMC Motif' },
       { src: 'Renders/Danganronpa_Front_FullQuality.mp4',   label: 'Full Quality' },
       { src: 'Renders/Danganronpa_Front_Normals.mp4',       label: 'Normals' },
       { src: 'Renders/Danganronpa_Front_Wireframe.mp4',     label: 'Wireframe' }
