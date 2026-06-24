@@ -1779,6 +1779,18 @@ footer {
     max-height: 60vw;
   }
 
+  .modal-thumbs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+    overflow-x: visible;
+    padding-bottom: 0;
+  }
+
+  .modal-thumb {
+    width: 100%;
+    height: 58px;
+  }
+
   .hero-content {
     grid-template-columns: 1fr;
     gap: 3rem;
