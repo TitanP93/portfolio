@@ -349,6 +349,13 @@ document.querySelectorAll('.work-card').forEach(card => {
     const id = card.dataset.project;
     if (id) openModal(id);
   });
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      const id = card.dataset.project;
+      if (id) openModal(id);
+    }
+  });
 });
 
 modalClose.addEventListener('click', closeModal);
