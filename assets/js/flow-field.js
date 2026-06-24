@@ -4,9 +4,15 @@
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
 
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    ctx.fillStyle = '#0a0a0a';
+    ctx.fillRect(0, 0, canvas.width || window.innerWidth, canvas.height || window.innerHeight);
+    return;
+  }
+
   const COLOR         = '#B80F0A';
   const TRAIL_OPACITY = 0.1;
-  const COUNT         = 600;
+  const COUNT         = window.matchMedia('(pointer: coarse)').matches ? 150 : 600;
   const SPEED         = 0.8;
   const BG            = '10, 10, 10'; // matches --bg: #0a0a0a
 

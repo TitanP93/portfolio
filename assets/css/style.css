@@ -621,7 +621,7 @@ ul {
 .filter-btn:hover,
 .filter-btn.active {
   background: var(--accent);
-  color: #0a0a0a;
+  color: #ffffff;
   border-color: var(--accent);
 }
 
