@@ -1749,11 +1749,17 @@ footer {
     --pad: 1.75rem;
   }
 
+  .modal {
+    align-items: flex-start;
+    overflow-y: auto;
+    padding-top: 5rem;
+  }
+
   .modal-inner {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    overflow-y: auto;
-    max-height: 94vh;
+    overflow-y: visible;
+    max-height: none;
   }
 
   .modal-info {
@@ -1870,7 +1876,7 @@ footer {
   }
 
   .modal {
-    padding: 0.5rem;
+    padding: 4rem 0.5rem 1rem;
   }
 
   .work-card--wide {
