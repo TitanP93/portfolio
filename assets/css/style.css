@@ -423,6 +423,10 @@ ul {
   width: 100%;
 }
 
+.hero-text {
+  text-align: center;
+}
+
 .hero-label {
   font-size: 0.75rem;
   letter-spacing: 0.14em;
@@ -431,6 +435,7 @@ ul {
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
 }
 
@@ -495,6 +500,7 @@ ul {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .hero-visual {
