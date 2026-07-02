@@ -127,4 +127,12 @@
     mouse.x = -1000;
     mouse.y = -1000;
   });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      cancelAnimationFrame(animId);
+    } else {
+      animate();
+    }
+  });
 })();

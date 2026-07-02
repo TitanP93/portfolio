@@ -29,6 +29,8 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // ===== PROJECT DATA =====
 const projects = {
   fallingthings: {
@@ -164,6 +166,36 @@ const marmosetContainer = document.getElementById('marmosetContainer');
 let activeMarmosetViewer = null;
 const projectOrder = ['fallingthings', 'thunder', 'pug', 'gachiakuta', 'huey', 'jester', 'jesterv2', 'selfstudyv1', 'portrait', 'danganronpakatana', 'milk'];
 let currentProjectIndex = -1;
+let modalTriggerEl = null;
+
+function getFocusable() {
+  return [...modal.querySelectorAll('button:not([disabled]), [tabindex="0"], a[href]')]
+    .filter(el => el.offsetParent !== null);
+}
+
+function trapFocus(e) {
+  if (e.key !== 'Tab') return;
+  const focusable = getFocusable();
+  if (!focusable.length) return;
+  const first = focusable[0];
+  const last  = focusable[focusable.length - 1];
+  if (e.shiftKey) {
+    if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+  } else {
+    if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+  }
+}
+
+function imgAlt(title, src, idx) {
+  const n = src.toLowerCase();
+  if (n.includes('normal')) return `${title} — Normal map`;
+  if (n.includes('wire'))   return `${title} — Wireframe`;
+  if (n.includes('turn'))   return `${title} — Turntable`;
+  if (n.includes('head'))   return `${title} — Head detail`;
+  if (n.includes('emiss'))  return `${title} — Emission pass`;
+  if (n.includes('open'))   return `${title} — Open view`;
+  return `${title} — View ${idx + 1}`;
+}
 
 function updateModalNav() {
   const prevBtn = document.getElementById('modalPrev');
@@ -234,7 +266,7 @@ function openModal(projectId) {
     destroyMarmoset();
     modalImg.style.display = 'block';
     modalImg.src = p.images[0];
-    modalImg.alt = p.title;
+    modalImg.alt = imgAlt(p.title, p.images[0], 0);
   }
 
   // Thumbnails
@@ -284,11 +316,11 @@ function openModal(projectId) {
       const thumb = document.createElement('div');
       const isFirst = i === 0 && !p.video && !p.videos;
       thumb.className = 'modal-thumb' + (isFirst ? ' active' : '');
-      thumb.innerHTML = `<img src="${src}" alt="${p.title} view ${i + 1}" loading="lazy" />`;
+      thumb.innerHTML = `<img src="${src}" alt="${imgAlt(p.title, src, i)}" loading="lazy" />`;
       thumb.addEventListener('click', () => {
         document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
         thumb.classList.add('active');
-        showImage(src, `${p.title} view ${i + 1}`);
+        showImage(src, imgAlt(p.title, src, i));
       });
       modalThumbs.appendChild(thumb);
     });
@@ -319,9 +351,14 @@ function openModal(projectId) {
     const scrollBarW = window.innerWidth - document.documentElement.clientWidth;
     document.body.style.paddingRight = scrollBarW + 'px';
     document.body.style.overflow = 'hidden';
+    modalTriggerEl = document.activeElement;
+    document.addEventListener('keydown', trapFocus);
     gsap.fromTo(modal,
       { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out', onStart: () => modal.classList.add('active') }
+      { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out', onStart: () => {
+        modal.classList.add('active');
+        modalClose.focus();
+      }}
     );
   }
 }
@@ -338,6 +375,8 @@ function closeModal() {
       modalVideo.pause();
       modalVideoSrc.src = '';
       destroyMarmoset();
+      document.removeEventListener('keydown', trapFocus);
+      if (modalTriggerEl) { modalTriggerEl.focus(); modalTriggerEl = null; }
     }
   });
 }
@@ -400,52 +439,56 @@ ScrollTrigger.create({
 });
 
 // ===== HERO ENTRANCE =====
-gsap.from('.hero-label', { y: 16, opacity: 0, duration: 0.7, ease: 'power2.out', delay: 0.2 });
+if (!reducedMotion) {
+  gsap.from('.hero-label', { y: 16, opacity: 0, duration: 0.7, ease: 'power2.out', delay: 0.2 });
 
-gsap.from('.hero-line', {
-  y: '110%', opacity: 0,
-  duration: 1, ease: 'power3.out',
-  stagger: 0.1, delay: 0.4
-});
+  gsap.from('.hero-line', {
+    y: '110%', opacity: 0,
+    duration: 1, ease: 'power3.out',
+    stagger: 0.1, delay: 0.4
+  });
 
-gsap.from('.hero-tagline', { y: 14, opacity: 0, duration: 0.6, ease: 'power2.out', delay: 0.65 });
-gsap.from('.hero-sub',  { y: 16, opacity: 0, duration: 0.7, ease: 'power2.out', delay: 0.75 });
-gsap.from('.hero-cta',  { y: 16, opacity: 0, duration: 0.7, ease: 'power2.out', delay: 0.9 });
-gsap.from('.hero-visual', { x: 50, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.35 });
-gsap.from('.hero-scroll', { opacity: 0, duration: 1, ease: 'power2.out', delay: 1.4 });
+  gsap.from('.hero-tagline', { y: 14, opacity: 0, duration: 0.6, ease: 'power2.out', delay: 0.65 });
+  gsap.from('.hero-sub',  { y: 16, opacity: 0, duration: 0.7, ease: 'power2.out', delay: 0.75 });
+  gsap.from('.hero-cta',  { y: 16, opacity: 0, duration: 0.7, ease: 'power2.out', delay: 0.9 });
+  gsap.from('.hero-visual', { x: 50, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.35 });
+  gsap.from('.hero-scroll', { opacity: 0, duration: 1, ease: 'power2.out', delay: 1.4 });
+}
 
 // ===== SCROLL ANIMATIONS =====
-gsap.utils.toArray('.work-card').forEach((card, i) => {
-  gsap.from(card, {
-    scrollTrigger: { trigger: card, start: 'top 88%' },
-    y: 44, opacity: 0, scale: 0.97, duration: 0.72, ease: 'power2.out',
-    delay: (i % 3) * 0.1
+if (!reducedMotion) {
+  gsap.utils.toArray('.work-card').forEach((card, i) => {
+    gsap.from(card, {
+      scrollTrigger: { trigger: card, start: 'top 88%' },
+      y: 44, opacity: 0, scale: 0.97, duration: 0.72, ease: 'power2.out',
+      delay: (i % 3) * 0.1
+    });
   });
-});
 
-gsap.from('.about-text', {
-  scrollTrigger: { trigger: '#about', start: 'top 75%' },
-  y: 36, opacity: 0, duration: 0.95, ease: 'power3.out'
-});
-gsap.from('.about-stack', {
-  scrollTrigger: { trigger: '#about', start: 'top 75%' },
-  y: 36, opacity: 0, duration: 0.95, ease: 'power3.out', delay: 0.1
-});
+  gsap.from('.about-text', {
+    scrollTrigger: { trigger: '#about', start: 'top 75%' },
+    y: 36, opacity: 0, duration: 0.95, ease: 'power3.out'
+  });
+  gsap.from('.about-stack', {
+    scrollTrigger: { trigger: '#about', start: 'top 75%' },
+    y: 36, opacity: 0, duration: 0.95, ease: 'power3.out', delay: 0.1
+  });
 
-gsap.from('.skill-item', {
-  scrollTrigger: { trigger: '#skills', start: 'top 78%' },
-  y: 32, opacity: 0, scale: 0.95, duration: 0.6, ease: 'power2.out', stagger: 0.07
-});
+  gsap.from('.skill-item', {
+    scrollTrigger: { trigger: '#skills', start: 'top 78%' },
+    y: 32, opacity: 0, scale: 0.95, duration: 0.6, ease: 'power2.out', stagger: 0.07
+  });
 
-gsap.from('.service-card', {
-  scrollTrigger: { trigger: '#services', start: 'top 78%' },
-  y: 32, opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.out', stagger: 0.1
-});
+  gsap.from('.service-card', {
+    scrollTrigger: { trigger: '#services', start: 'top 78%' },
+    y: 32, opacity: 0, scale: 0.96, duration: 0.6, ease: 'power2.out', stagger: 0.1
+  });
 
-gsap.from('.contact-inner', {
-  scrollTrigger: { trigger: '#contact', start: 'top 78%' },
-  y: 55, opacity: 0, scale: 0.96, duration: 1.05, ease: 'power3.out'
-});
+  gsap.from('.contact-inner', {
+    scrollTrigger: { trigger: '#contact', start: 'top 78%' },
+    y: 55, opacity: 0, scale: 0.96, duration: 1.05, ease: 'power3.out'
+  });
+}
 
 // ===== SCROLL PROGRESS BAR =====
 const progressBar = document.querySelector('.scroll-progress');
@@ -465,6 +508,16 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 backToTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ===== WORK CARD VIDEO VISIBILITY =====
+document.querySelectorAll('.work-card--wide video').forEach(video => {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(({ isIntersecting }) => {
+      isIntersecting ? video.play().catch(() => {}) : video.pause();
+    });
+  }, { threshold: 0.1 });
+  io.observe(video);
 });
 
 // ===== MOBILE NAV =====
@@ -503,6 +556,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
 navSections.forEach(s => sectionObserver.observe(s));
 
 // ===== HERO TEXT SCRAMBLE =====
+if (!reducedMotion)
 (function() {
   const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#!';
   const heroLines = document.querySelectorAll('.hero-line');
@@ -632,10 +686,12 @@ filterBtns.forEach(btn => {
       const match = filter === 'all' || card.dataset.category === filter;
       if (match) {
         card.classList.remove('hidden');
-        gsap.fromTo(card,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }
-        );
+        if (!reducedMotion) {
+          gsap.fromTo(card,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }
+          );
+        }
       } else {
         card.classList.add('hidden');
       }
@@ -655,8 +711,11 @@ filterBtns.forEach(btn => {
   const originals = [...track.children];
   const origCount = originals.length;
 
-  // Clone until track is at least 3x the viewport wide
-  // so the loop point is always off-screen regardless of window size
+  // Always add 2 clones minimum — on mobile one set already exceeds 3× viewport
+  // so the while loop below never fires, leaving no content to loop into
+  originals.forEach(el => track.appendChild(el.cloneNode(true)));
+  originals.forEach(el => track.appendChild(el.cloneNode(true)));
+  // Add more clones on wide viewports where a single set is narrow
   while (track.scrollWidth < window.innerWidth * 3) {
     originals.forEach(el => track.appendChild(el.cloneNode(true)));
   }
