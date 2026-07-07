@@ -1,6 +1,6 @@
 # Joshua Bostic
 
-Brooklyn, NY  ·  [Phone Number]  ·  JoshuaBostic@rocketmail.com  ·  titanp93.github.io  ·  artstation.com/joshboss
+Brooklyn, NY  ·  [Phone Number]  ·  JoshuaBostic@rocketmail.com  ·  bostic3d.com  ·  artstation.com/joshboss
 
 ---
 
