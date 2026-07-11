@@ -101,8 +101,11 @@ const projects = {
   jesterv2: {
     title: 'Jester v2',
     category: 'Character',
-    desc: 'The mascot, continued. An updated pass on the Jester character — pushing the sculpt, texturing, and presentation further than v1. The same character, sharper execution.',
+    desc: 'The mascot, continued. An updated pass on the Jester character — pushing the sculpt, texturing, and presentation further than v1. The same character, sharper execution. The retopo timelapse shows the animation-ready rebuild in progress: hand-placed topology in Maya Quad Draw, three sessions compressed to 72 seconds.',
     software: ['ZBrush', 'Maya', 'Marmoset Toolbag'],
+    videos: [
+      { src: 'Renders/Jester_v2_retopo.mp4', label: 'Retopo Timelapse' }
+    ],
     images: ['Renders/Jester_TA.jpg']
   },
   selfstudyv1: {
